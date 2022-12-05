@@ -5,8 +5,11 @@ import json
 import pandas as pd
 import streamlit as st
 import altair as alt
+
 file_path = "C:\\Users\hojin\Desktop\gwajea\python\gimal\simple.txt"
 url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=파주&dataTerm=DAILY&pageNo=1&numOfRows=100&returnType=json&serviceKey=KQRR%2BJLPRITcRv6CvRB1QUxmDQ%2BKmcKWMjK1A19g%2BiHLEbXTpqjWmut5pwHfKkH6O7KfqLSXxEmrLt6Ctooliw%3D%3D"
+image = "https://github.com/hojimint/lit/blob/main/RESULT2.PNG?raw=true"
+image2 ="https://github.com/hojimint/lit/blob/main/RESULT1.PNG?raw=true"
 
 response = requests.get(url)
 
@@ -35,6 +38,12 @@ time = dataframe['dataTime']
 total = dataframe['total']
 dust = dataframe['dust']
 # # 바차트 올리기
-st.write(total)
+st.title('공공데이터 분석하기')
+st.write('한국환경공단_에어코리아_대기오염정보의 통합환경수치와 미세먼지를 불러와 분석을 진행합니다.')
+st.write('파주시의 대기 상태를 실시간으로 불러와 시각화 하고있습니다.')
+st.header("통합 환경 수치")
 st.bar_chart(total)
+st.image(image2)
+st.header("미세먼지")
 st.bar_chart(dust)
+st.image(image)
