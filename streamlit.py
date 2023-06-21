@@ -47,3 +47,4 @@ st.image(image2)
 st.header("미세먼지")
 st.bar_chart(dust)
 st.image(image)
+  
